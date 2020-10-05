@@ -1,13 +1,9 @@
 import React from "react";
 
-const Auth = ({ setIsLoggedIn }) => {
-  const btClick = () => {
-    setIsLoggedIn(true);
-  };
+const Auth = () => {
   return (
     <>
       <span>Auth</span>
-      <button onClick={btClick}>click</button>
     </>
   );
 };
