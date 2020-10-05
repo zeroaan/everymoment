@@ -1,11 +1,12 @@
 import React from "react";
+import AppRouter from "./Router";
 
-function App() {
+const App = () => {
   return (
     <>
-      <div></div>
+      <AppRouter />
     </>
   );
-}
+};
 
 export default App;
