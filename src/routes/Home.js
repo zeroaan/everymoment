@@ -1,13 +1,41 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { dbService } from "fbase";
 
-const Home = () => {
+const Home = ({ userObj }) => {
   const [aweet, setAweet] = useState("");
+  const [aweets, setAweets] = useState([]);
+
+  /* 실시간 X 
+  const getAweets = async () => {
+    const dbAweets = await dbService.collection("aweets").get();
+    dbAweets.forEach((document) => {
+      const aweetObject = {
+        ...document.data(),
+        id: document.id,
+      };
+      setAweets((prev) => [aweetObject, ...prev]);
+    });
+  };
+  */
+  useEffect(() => {
+    // getAweets();
+    // 실시간
+    dbService.collection("aweets").onSnapshot((snapshot) => {
+      const aweetArray = snapshot.docs.map((doc) => ({
+        id: doc.id,
+        ...doc.data(),
+      }));
+      setAweets(aweetArray);
+    });
+  }, []);
+
   const onSubmit = async (e) => {
-    e.preventDefalut();
+    e.preventDefault();
     await dbService.collection("aweets").add({
-      aweet,
+      text: aweet,
       createdAt: Date.now(),
+      created: String(new Date()).substring(0, 24),
+      creatorId: userObj.uid,
     });
     setAweet("");
   };
@@ -17,7 +45,7 @@ const Home = () => {
   };
   return (
     <>
-      <form>
+      <form onSubmit={onSubmit}>
         <input
           type="text"
           value={aweet}
@@ -27,6 +55,14 @@ const Home = () => {
         />
         <input type="submit" value="Aweet" />
       </form>
+      <div>
+        {aweets.map((aweet) => (
+          <div key={aweet.id}>
+            <h4>{aweet.text}</h4>
+            <h5>{aweet.created}</h5>
+          </div>
+        ))}
+      </div>
     </>
   );
 };
