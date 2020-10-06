@@ -4,7 +4,7 @@ import { authService, firebaseInstance } from "fbase";
 const Auth = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [newAccount, setNewAccount] = useState(true);
+  const [newAccount, setNewAccount] = useState(false);
   const [error, setError] = useState("");
 
   const onChange = (e) => {
@@ -39,6 +39,7 @@ const Auth = () => {
     setNewAccount((prev) => !prev);
   };
   const onSocialClick = async (e) => {
+    // 구글, 깃허브 로그인 하기
     const { name } = e.target;
     let provider;
     if (name === "google") {
