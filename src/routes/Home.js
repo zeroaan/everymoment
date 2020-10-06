@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { dbService } from "fbase";
+import Aweet from "components/Aweet";
 
 const Home = ({ userObj }) => {
   const [aweet, setAweet] = useState("");
@@ -19,7 +20,7 @@ const Home = ({ userObj }) => {
   */
   useEffect(() => {
     // getAweets();
-    // 실시간
+    // 실시간 O
     dbService.collection("aweets").onSnapshot((snapshot) => {
       const aweetArray = snapshot.docs.map((doc) => ({
         id: doc.id,
@@ -34,7 +35,6 @@ const Home = ({ userObj }) => {
     await dbService.collection("aweets").add({
       text: aweet,
       createdAt: Date.now(),
-      created: String(new Date()).substring(0, 24),
       creatorId: userObj.uid,
     });
     setAweet("");
@@ -57,10 +57,11 @@ const Home = ({ userObj }) => {
       </form>
       <div>
         {aweets.map((aweet) => (
-          <div key={aweet.id}>
-            <h4>{aweet.text}</h4>
-            <h5>{aweet.created}</h5>
-          </div>
+          <Aweet
+            key={aweet.id}
+            aweetObj={aweet}
+            isOwner={aweet.creatorId === userObj.uid}
+          />
         ))}
       </div>
     </>
