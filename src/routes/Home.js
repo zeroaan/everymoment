@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { dbService } from "fbase";
+import { v4 as uuidv4 } from "uuid";
+import { dbService, storageService } from "fbase";
 import Aweet from "components/Aweet";
 
 const Home = ({ userObj }) => {
@@ -33,12 +34,32 @@ const Home = ({ userObj }) => {
 
   const onSubmit = async (e) => {
     e.preventDefault();
-    await dbService.collection("aweets").add({
+    // 글추가
+    // await dbService.collection("aweets").add({
+    //   text: aweet,
+    //   createdAt: Date.now(),
+    //   creatorId: userObj.uid,
+    // });
+    // setAweet("");
+
+    // 사진 추가
+    let attachmentUrl = "";
+    if (attachment !== "") {
+      const attachmentRef = storageService
+        .ref()
+        .child(`${userObj.uid}/${uuidv4()}`);
+      const response = await attachmentRef.putString(attachment, "data_url");
+      attachmentUrl = await response.ref.getDownloadURL();
+    }
+    const aweetObj = {
       text: aweet,
       createdAt: Date.now(),
       creatorId: userObj.uid,
-    });
+      attachmentUrl,
+    };
+    await dbService.collection("aweets").add(aweetObj);
     setAweet("");
+    setAttachment("");
   };
   const onChange = (e) => {
     const { value } = e.target;

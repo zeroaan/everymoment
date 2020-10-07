@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./Aweet.css";
-import { dbService } from "fbase";
+import { dbService, storageService } from "fbase";
 
 const Aweet = ({ aweetObj, isOwner }) => {
   const [editing, setEditing] = useState(false);
@@ -9,6 +9,7 @@ const Aweet = ({ aweetObj, isOwner }) => {
     const ok = window.confirm("Are you sure you want to delete this aweet?");
     if (ok) {
       await dbService.doc(`aweets/${aweetObj.id}`).delete();
+      await storageService.refFromURL(aweetObj.attachmentUrl).delete();
     }
   };
   const toggleEditing = () => {
@@ -48,6 +49,14 @@ const Aweet = ({ aweetObj, isOwner }) => {
           <div className="aweet">
             <h4>{aweetObj.text}</h4>
             <h5>{String(new Date(aweetObj.createdAt)).substring(0, 24)}</h5>
+            {aweetObj.attachmentUrl && (
+              <img
+                src={aweetObj.attachmentUrl}
+                width="50px"
+                height="50px"
+                alt="attachment"
+              />
+            )}
             {isOwner && (
               <div className="aweet__button">
                 <button onClick={onDeleteClick}>Delete Aweet</button>
