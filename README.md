@@ -175,3 +175,27 @@ const onDeleteClick = async () => {
   }
 };
 ```
+
+<br>
+
+##### 사진 첨부 (firebase X)
+
+- https://developer.mozilla.org/ko/docs/Web/API/FileReader
+- new FileReader(), onloadend, readAsDataURL
+
+```javascript
+const onFileChange = (e) => {
+  const { files } = e.target;
+  const theFile = files[0];
+  const reader = new FileReader();
+  reader.onloadend = (finishedEvent) => {
+    const { result } = finishedEvent.currentTarget;
+    setAttachment(result);
+  };
+  reader.readAsDataURL(theFile);
+};
+const onClearAttachment = () => {
+  // clear button
+  setAttachment(null);
+};
+```
