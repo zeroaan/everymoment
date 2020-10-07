@@ -1,1 +1,177 @@
-Cloning Twitter with React and Firebase
+# Cloning Twitter with React and Firebase
+
+### firebase 기능, 메서드 정리
+
+- 먼저 firebase 홈페이지 > 콘솔로 이동 > 프로젝트 생성
+- 그 후에 나오는 코드를 fbase.js 파일에 적어준다.
+- auth(login), firestore(db) 등 사용할 기능을 import 해준다.
+
+<br>
+
+#### User 생성, 로그인
+
+- https://firebase.google.com/docs/auth/web/password-auth?hl=ko
+- firebase.auth().createUserWithEmailAndPassword()
+- firebase.auth().signInWithEmailAndPassword()
+
+```javascript
+const onSubmit = async (e) => {
+  e.preventDefault();
+  try {
+    let data;
+    if (newAccount) {
+      data = await authService.createUserWithEmailAndPassword(email, password);
+    } else {
+      data = await authService.signInWithEmailAndPassword(email, password);
+    }
+    console.log(data);
+  } catch (error) {
+    setError(error.message);
+  }
+};
+```
+
+<br>
+
+##### 외부 아이디로 로그인
+
+- https://firebase.google.com/docs/reference/js/firebase.auth.GoogleAuthProvider
+- firebase.auth.GoogleAuthProvider()
+- firebase.auth.GithubAuthProvider()
+
+```javascript
+const onSocialClick = async (e) => {
+  // 구글, 깃허브 로그인 하기
+  const { name } = e.target;
+  let provider;
+  if (name === "google") {
+    provider = new firebaseInstance.auth.GoogleAuthProvider();
+  } else if (name === "github") {
+    provider = new firebaseInstance.auth.GithubAuthProvider();
+  }
+  await authService.signInWithPopup(provider);
+};
+```
+
+<br>
+
+#### 현재 로그인한 사용자 가져오기
+
+- https://firebase.google.com/docs/auth/web/manage-users?hl=ko
+- firebase.auth().onAuthStateChanged()
+- 이 속성을 이용해서 user가 있으면 home으로 없으면 login화면으로 가게 할 수 있다.
+- 비슷한 속성으로 currentUser 이 있다.
+
+```javascript
+firebase.auth().onAuthStateChanged(function (user) {
+  if (user) {
+    // User is signed in.
+  } else {
+    // No user is signed in.
+  }
+});
+```
+
+<br>
+
+#### 현재 사용자 로그아웃하기
+
+- https://firebase.google.com/docs/auth/web/password-auth?hl=ko
+- firebase.auth().signOut()
+
+```javascript
+import { useHistory } from "react-router-dom";
+const history = useHistory();
+const onLogOutClick = () => {
+  authService.signOut();
+  history.push("/");
+  // 위 속성은 단순히 로그아웃만 시키기 때문에 useHistory를 이용하여
+  // /로 push 해주어야 한다.
+};
+```
+
+<br>
+
+#### DB 데이터 관리(CRUD): 생성, 읽기, 수정, 삭제
+
+- https://firebase.google.com/docs/reference/js/firebase.firestore.CollectionReference?hl=ko
+- https://firebase.google.com/docs/reference/js/firebase.firestore.DocumentReference?hl=ko
+
+##### 생성
+
+- firebase.firestore().collection("collection 이름").add()
+
+```javascript
+const onSubmit = async (e) => {
+  e.preventDefault();
+  await dbService.collection("aweets").add({
+    text: aweet,
+    createdAt: Date.now(),
+    creatorId: userObj.uid,
+  });
+  setAweet("");
+};
+```
+
+##### 읽기
+
+- firebase.firestore().collection("collection 이름").get()
+- firebase.firestore().collection("collection 이름").onSnapshot()
+
+```javascript
+/* 실시간 X 
+  const getAweets = async () => {
+    const dbAweets = await dbService.collection("aweets").get();
+    dbAweets.forEach((document) => {
+      const aweetObject = {
+        ...document.data(),
+        id: document.id,
+      };
+      setAweets((prev) => [aweetObject, ...prev]);
+    });
+  };
+  */
+useEffect(() => {
+  // getAweets();
+  // 실시간 O
+  dbService.collection("aweets").onSnapshot((snapshot) => {
+    const aweetArray = snapshot.docs.map((doc) => ({
+      id: doc.id,
+      ...doc.data(),
+    }));
+    setAweets(aweetArray);
+  });
+}, []);
+```
+
+##### 수정
+
+- firebase.firestore().doc("collection 주소").update()
+
+```javascript
+const toggleEditing = () => {
+  // editing이 true면 수정화면, false면 읽기화면이 보여짐
+  // 토글버튼을 만들고 클릭시 수정가능
+  setEditing((prev) => !prev);
+};
+const onSubmit = async (e) => {
+  e.preventDefault();
+  await dbService.doc(`aweets/${aweetObj.id}`).update({
+    text: newAweet,
+  });
+  setEditing(false);
+};
+```
+
+##### 삭제
+
+- firebase.firestore().doc("collection 주소").delete()
+
+```javascript
+const onDeleteClick = async () => {
+  const ok = window.confirm("Are you sure you want to delete this aweet?");
+  if (ok) {
+    await dbService.doc(`aweets/${aweetObj.id}`).delete();
+  }
+};
+```
