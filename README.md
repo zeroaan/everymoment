@@ -135,13 +135,16 @@ const onSubmit = async (e) => {
 useEffect(() => {
   // getAweets();
   // 실시간 O
-  const snapshot = dbService.collection("aweets").onSnapshot((snapshot) => {
-    const aweetArray = snapshot.docs.map((doc) => ({
-      id: doc.id,
-      ...doc.data(),
-    }));
-    setAweets(aweetArray);
-  });
+  const snapshot = dbService
+    .collection("aweets")
+    .orderBy("createdAt", "desc") // 내림차순으로 정렬
+    .onSnapshot((snapshot) => {
+      const aweetArray = snapshot.docs.map((doc) => ({
+        id: doc.id,
+        ...doc.data(),
+      }));
+      setAweets(aweetArray);
+    });
   return () => {
     // (위 리스너 분리 링크 확인) 오류가 떠서 확인해본 결과,
     // 이벤트 콜백이 호출되지 않도록 리스너를 분리해야 한다.

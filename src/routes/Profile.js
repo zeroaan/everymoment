@@ -19,6 +19,9 @@ const Profile = ({ userObj }) => {
     await aweets.docs.map((doc) =>
       setMyAweets((prev) => [...prev, doc.data()])
     );
+    return () => {
+      aweets();
+    };
   };
 
   useEffect(() => {
