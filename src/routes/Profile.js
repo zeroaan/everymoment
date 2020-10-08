@@ -3,12 +3,28 @@ import { authService, dbService } from "fbase";
 import { useHistory } from "react-router-dom";
 import Aweet from "components/Aweet";
 
-const Profile = ({ userObj }) => {
+const Profile = ({ refreshUser, userObj }) => {
   const [myAweets, setMyAweets] = useState([]);
+  const [newDisplayName, setNewDisplayName] = useState(
+    userObj.displayName || String(userObj.uid).substring(0, 6)
+  );
   const history = useHistory();
   const onLogOutClick = () => {
     authService.signOut();
     history.push("/");
+  };
+  const onChange = (e) => {
+    const { value } = e.target;
+    setNewDisplayName(value);
+  };
+  const onSubmit = async (e) => {
+    e.preventDefault();
+    if (userObj.displayName !== newDisplayName) {
+      await userObj.updateProfile({
+        displayName: newDisplayName,
+      });
+      refreshUser();
+    }
   };
 
   useEffect(() => {
@@ -32,7 +48,17 @@ const Profile = ({ userObj }) => {
 
   return (
     <>
+      <form onSubmit={onSubmit}>
+        <input
+          onChange={onChange}
+          type="text"
+          placeholder="Display name"
+          value={newDisplayName}
+        />
+        <input type="submit" value="Update name" />
+      </form>
       <button onClick={onLogOutClick}>Log out</button>
+
       {myAweets.map((aweet) => (
         <Aweet
           key={aweet.id}
