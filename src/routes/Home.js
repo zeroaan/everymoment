@@ -6,7 +6,7 @@ import Aweet from "components/Aweet";
 const Home = ({ userObj }) => {
   const [aweet, setAweet] = useState("");
   const [aweets, setAweets] = useState([]);
-  const [attachment, setAttachment] = useState();
+  const [attachment, setAttachment] = useState("");
 
   /* 실시간 X 
   const getAweets = async () => {
@@ -23,13 +23,16 @@ const Home = ({ userObj }) => {
   useEffect(() => {
     // getAweets();
     // 실시간 O
-    dbService.collection("aweets").onSnapshot((snapshot) => {
-      const aweetArray = snapshot.docs.map((doc) => ({
-        id: doc.id,
-        ...doc.data(),
-      }));
-      setAweets(aweetArray);
-    });
+    dbService
+      .collection("aweets")
+      .orderBy("createdAt", "desc")
+      .onSnapshot((snapshot) => {
+        const aweetArray = snapshot.docs.map((doc) => ({
+          id: doc.id,
+          ...doc.data(),
+        }));
+        setAweets(aweetArray);
+      });
   }, []);
 
   const onSubmit = async (e) => {
@@ -51,15 +54,17 @@ const Home = ({ userObj }) => {
       const response = await attachmentRef.putString(attachment, "data_url");
       attachmentUrl = await response.ref.getDownloadURL();
     }
-    const aweetObj = {
-      text: aweet,
-      createdAt: Date.now(),
-      creatorId: userObj.uid,
-      attachmentUrl,
-    };
-    await dbService.collection("aweets").add(aweetObj);
-    setAweet("");
-    setAttachment("");
+    if (aweet !== "") {
+      const aweetObj = {
+        text: aweet,
+        createdAt: Date.now(),
+        creatorId: userObj.uid,
+        attachmentUrl,
+      };
+      await dbService.collection("aweets").add(aweetObj);
+      setAweet("");
+      setAttachment("");
+    }
   };
   const onChange = (e) => {
     const { value } = e.target;
