@@ -26,6 +26,11 @@ const Profile = ({ refreshUser, userObj }) => {
       refreshUser();
     }
   };
+  const onKeyPress = (e) => {
+    if (e.key === "Enter") {
+      e.preventDefault();
+    }
+  };
 
   useEffect(() => {
     const snapshot = dbService
@@ -54,6 +59,7 @@ const Profile = ({ refreshUser, userObj }) => {
           type="text"
           placeholder="Display name"
           value={newDisplayName}
+          onKeyPress={onKeyPress}
         />
         <input type="submit" value="Update name" />
       </form>

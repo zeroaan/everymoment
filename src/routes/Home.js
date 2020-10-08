@@ -69,6 +69,11 @@ const Home = ({ userObj }) => {
       setAttachment("");
     }
   };
+  const onKeyPress = (e) => {
+    if (e.key === "Enter") {
+      e.preventDefault();
+    }
+  };
   const onChange = (e) => {
     const { value } = e.target;
     setAweet(value);
@@ -96,6 +101,8 @@ const Home = ({ userObj }) => {
           onChange={onChange}
           placeholder="What's on your mind?"
           maxLength={120}
+          onKeyPress={onKeyPress}
+          autoFocus={true}
         />
         <input type="file" accept="image/*" onChange={onFileChange} />
 
