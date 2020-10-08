@@ -255,3 +255,43 @@ const onSubmit = async (e) => {
   await storageService.refFromURL(aweetObj.attachmentUrl).delete();
 };
 ```
+
+<br>
+
+#### User 관리
+
+- https://firebase.google.com/docs/reference/js/firebase.User
+
+##### Profile 수정
+
+- user.updateProfile({
+  displayName: "이름",
+  photoURL: "이미지 주소"
+  }
+
+```javascript
+const onChange = (e) => {
+  const { value } = e.target;
+  setNewDisplayName(value);
+};
+const onSubmit = async (e) => {
+  e.preventDefault();
+  if (userObj.displayName !== newDisplayName) {
+    await userObj.updateProfile({
+      displayName: newDisplayName,
+    });
+    refreshUser();
+  }
+};
+```
+
+##### displayName을 바꾸기만 하면 firebase에서는 바뀌지만 react는 인지하지 못해서 리랜더링을 하지 않는다.
+
+- App.js 에서 userObj를 생성할 때 같이 바꿔줘야 랜더링이 된다.
+
+```javascript
+const refreshUser = () => {
+  const user = authService.currentUser;
+  setUserObj(Object.assign({}, user));
+};
+```
