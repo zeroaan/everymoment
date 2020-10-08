@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { authService, dbService } from "fbase";
 import { useHistory } from "react-router-dom";
+import Aweet from "components/Aweet";
 
 const Profile = ({ userObj }) => {
   const [myAweets, setMyAweets] = useState([]);
@@ -9,23 +10,23 @@ const Profile = ({ userObj }) => {
     authService.signOut();
     history.push("/");
   };
-  const getMyNweets = async () => {
-    const aweets = await dbService
+
+  useEffect(() => {
+    const snapshot = dbService
       .collection("aweets")
       .where("creatorId", "==", userObj.uid)
       .orderBy("createdAt", "desc")
-      .get();
+      .onSnapshot((snapshot) => {
+        const aweetArray = snapshot.docs.map((doc) => ({
+          id: doc.id,
+          ...doc.data(),
+        }));
+        setMyAweets(aweetArray);
+      });
 
-    await aweets.docs.map((doc) =>
-      setMyAweets((prev) => [...prev, doc.data()])
-    );
     return () => {
-      aweets();
+      snapshot();
     };
-  };
-
-  useEffect(() => {
-    getMyNweets();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -33,18 +34,11 @@ const Profile = ({ userObj }) => {
     <>
       <button onClick={onLogOutClick}>Log out</button>
       {myAweets.map((aweet) => (
-        <div key={aweet.createdAt} className="aweet">
-          <h4>{aweet.text}</h4>
-          <h5>{String(new Date(aweet.createdAt)).substring(0, 24)}</h5>
-          {aweet.attachmentUrl && (
-            <img
-              src={aweet.attachmentUrl}
-              width="50px"
-              height="50px"
-              alt="attachment"
-            />
-          )}
-        </div>
+        <Aweet
+          key={aweet.id}
+          aweetObj={aweet}
+          isOwner={aweet.creatorId === userObj.uid}
+        />
       ))}
     </>
   );
