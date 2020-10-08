@@ -34,6 +34,14 @@ const Profile = ({ userObj }) => {
         <div key={aweet.createdAt} className="aweet">
           <h4>{aweet.text}</h4>
           <h5>{String(new Date(aweet.createdAt)).substring(0, 24)}</h5>
+          {aweet.attachmentUrl && (
+            <img
+              src={aweet.attachmentUrl}
+              width="50px"
+              height="50px"
+              alt="attachment"
+            />
+          )}
         </div>
       ))}
     </>

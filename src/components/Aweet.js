@@ -9,7 +9,9 @@ const Aweet = ({ aweetObj, isOwner }) => {
     const ok = window.confirm("Are you sure you want to delete this aweet?");
     if (ok) {
       await dbService.doc(`aweets/${aweetObj.id}`).delete();
-      await storageService.refFromURL(aweetObj.attachmentUrl).delete();
+      if (aweetObj.attachmentUrl) {
+        await storageService.refFromURL(aweetObj.attachmentUrl).delete();
+      }
     }
   };
   const toggleEditing = () => {

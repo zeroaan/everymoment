@@ -23,7 +23,7 @@ const Home = ({ userObj }) => {
   useEffect(() => {
     // getAweets();
     // 실시간 O
-    dbService
+    const snapshot = dbService
       .collection("aweets")
       .orderBy("createdAt", "desc")
       .onSnapshot((snapshot) => {
@@ -33,6 +33,9 @@ const Home = ({ userObj }) => {
         }));
         setAweets(aweetArray);
       });
+    return () => {
+      snapshot();
+    };
   }, []);
 
   const onSubmit = async (e) => {
