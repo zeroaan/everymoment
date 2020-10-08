@@ -178,7 +178,7 @@ const onDeleteClick = async () => {
 
 <br>
 
-##### 사진 첨부 (firebase X)
+#### 사진 첨부 (firebase X)
 
 - https://developer.mozilla.org/ko/docs/Web/API/FileReader
 - new FileReader(), onloadend, readAsDataURL
@@ -197,5 +197,52 @@ const onFileChange = (e) => {
 const onClearAttachment = () => {
   // clear button
   setAttachment(null);
+};
+```
+
+#### Firebase Storage
+
+- https://firebase.google.com/docs/reference/js/firebase.storage.Storage?hl=ko
+
+##### 생성
+
+- https://firebase.google.com/docs/reference/js/firebase.storage.Reference?hl=ko
+- firebase.storage().ref().child(유저아이디/랜덤값)
+- putString()
+- ref.getDownloadURL()
+
+```javascript
+// 위에서 했던 DB 생성 함수을 수정한다.
+const onSubmit = async (e) => {
+  e.preventDefault();
+  let attachmentUrl = "";
+  if (attachment !== "") {
+    const attachmentRef = storageService
+      .ref()
+      .child(`${userObj.uid}/${uuidv4()}`);
+    // uuidv4() 는 랜덤으로 값을 가져옴
+    const response = await attachmentRef.putString(attachment, "data_url");
+    attachmentUrl = await response.ref.getDownloadURL();
+  }
+  const aweetObj = {
+    text: aweet,
+    createdAt: Date.now(),
+    creatorId: userObj.uid,
+    attachmentUrl,
+  };
+  await dbService.collection("aweets").add(aweetObj);
+  setAweet("");
+  setAttachment("");
+};
+```
+
+##### 삭제
+
+- https://firebase.google.com/docs/reference/js/firebase.storage.Reference?hl=ko
+- firebase.storage().refFromURL(collection 객체.이미지주소).delete()
+
+```javascript
+  // 위에서 했던 DB 삭제 함수에서 아래 명령을 추가해준다.
+  await storageService.refFromURL(aweetObj.attachmentUrl).delete();
 };
 ```
