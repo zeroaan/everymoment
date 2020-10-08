@@ -32,7 +32,6 @@ const Profile = ({ userObj }) => {
   return (
     <>
       <button onClick={onLogOutClick}>Log out</button>
-
       {myAweets.map((aweet) => (
         <div key={aweet.createdAt} className="aweet">
           <h4>{aweet.text}</h4>
