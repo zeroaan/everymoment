@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/awitter/static/css/main.4f1444d6.chunk.css",
+    "main.js": "/awitter/static/js/main.33462cea.chunk.js",
+    "main.js.map": "/awitter/static/js/main.33462cea.chunk.js.map",
+    "runtime-main.js": "/awitter/static/js/runtime-main.001eb6ae.js",
+    "runtime-main.js.map": "/awitter/static/js/runtime-main.001eb6ae.js.map",
+    "static/js/2.96c8f64f.chunk.js": "/awitter/static/js/2.96c8f64f.chunk.js",
+    "static/js/2.96c8f64f.chunk.js.map": "/awitter/static/js/2.96c8f64f.chunk.js.map",
+    "index.html": "/awitter/index.html",
+    "precache-manifest.e8ce1c729278b4fb02be9d96620af8f3.js": "/awitter/precache-manifest.e8ce1c729278b4fb02be9d96620af8f3.js",
+    "service-worker.js": "/awitter/service-worker.js",
+    "static/css/main.4f1444d6.chunk.css.map": "/awitter/static/css/main.4f1444d6.chunk.css.map",
+    "static/js/2.96c8f64f.chunk.js.LICENSE.txt": "/awitter/static/js/2.96c8f64f.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.001eb6ae.js",
+    "static/js/2.96c8f64f.chunk.js",
+    "static/css/main.4f1444d6.chunk.css",
+    "static/js/main.33462cea.chunk.js"
+  ]
+}
