@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/awitter/precache-manifest.e8ce1c729278b4fb02be9d96620af8f3.js"
+  "/awitter/precache-manifest.6501e07ab28425be3b4377ac6fef7177.js"
 );
 
 self.addEventListener('message', (event) => {
