@@ -6,7 +6,7 @@ import Aweet from "components/Aweet";
 const Profile = ({ refreshUser, userObj }) => {
   const [myAweets, setMyAweets] = useState([]);
   const [newDisplayName, setNewDisplayName] = useState(
-    userObj.displayName || String(userObj.uid).substring(0, 6)
+    userObj.displayName || "익명" + String(userObj.uid).substring(3, 9)
   );
   const history = useHistory();
   const onLogOutClick = () => {

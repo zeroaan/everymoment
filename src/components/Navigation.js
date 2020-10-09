@@ -16,7 +16,7 @@ const Navigation = ({ userObj }) => {
               {userObj.displayName ? (
                 <>{userObj.displayName}의 Profile</>
               ) : (
-                <>{String(userObj.uid).substring(0, 6)}의 Profile</>
+                <>{"익명" + String(userObj.uid).substring(3, 9)}의 Profile</>
               )}
             </Link>
           </li>
