@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./Aweet.css";
 import { dbService, storageService } from "fbase";
 
-const Aweet = ({ aweetObj, isOwner }) => {
+const Aweet = ({ aweetObj, isOwner, userObj }) => {
   const [editing, setEditing] = useState(false);
   const [newAweet, setNewAweet] = useState(aweetObj.text);
   const onDeleteClick = async () => {
@@ -28,6 +28,19 @@ const Aweet = ({ aweetObj, isOwner }) => {
     const { value } = e.target;
     setNewAweet(value);
   };
+
+  useEffect(() => {
+    if (userObj) {
+      if (userObj.displayName !== aweetObj.userName) {
+        dbService.doc(`aweets/${aweetObj.id}`).update({
+          userName:
+            userObj.displayName || "익명" + String(userObj.uid).substring(3, 9),
+        });
+      }
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [userObj]);
+
   return (
     <>
       {editing ? (
@@ -49,6 +62,7 @@ const Aweet = ({ aweetObj, isOwner }) => {
       ) : (
         <>
           <div className="aweet">
+            <h4>{aweetObj.userName}</h4>
             <h4>{aweetObj.text}</h4>
             <h5>{String(new Date(aweetObj.createdAt)).substring(0, 24)}</h5>
             {aweetObj.attachmentUrl && (

@@ -31,6 +31,8 @@ const AweetFactory = ({ userObj }) => {
         createdAt: Date.now(),
         creatorId: userObj.uid,
         attachmentUrl,
+        userName:
+          userObj.displayName || "익명" + String(userObj.uid).substring(3, 9),
       };
       await dbService.collection("aweets").add(aweetObj);
       setAweet("");
