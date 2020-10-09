@@ -31,7 +31,10 @@ const Aweet = ({ aweetObj, isOwner, userObj }) => {
 
   useEffect(() => {
     if (userObj) {
-      if (userObj.displayName !== aweetObj.userName) {
+      if (
+        userObj.uid === aweetObj.creatorId &&
+        userObj.displayName !== aweetObj.userName
+      ) {
         dbService.doc(`aweets/${aweetObj.id}`).update({
           userName:
             userObj.displayName || "익명" + String(userObj.uid).substring(3, 9),
