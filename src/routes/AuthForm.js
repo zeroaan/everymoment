@@ -41,29 +41,49 @@ const AuthForm = () => {
 
   return (
     <>
-      <form onSubmit={onSubmit}>
-        <input
-          name="email"
-          type="email"
-          placeholder="Email"
-          required
-          value={email}
-          onChange={onChange}
-        />
-        <input
-          name="password"
-          type="password"
-          placeholder="Password"
-          required
-          value={password}
-          onChange={onChange}
-        />
-        <input type="submit" value={newAccount ? "Create Account" : "Login"} />
-        {error && <p>{error}</p>}
+      <form className="auth__form" onSubmit={onSubmit}>
+        <div className="auth__input">
+          <div className="form__input">
+            <input
+              name="email"
+              type="email"
+              placeholder="Email"
+              required
+              value={email}
+              onChange={onChange}
+            />
+            <input
+              name="password"
+              type="password"
+              placeholder="Password"
+              required
+              value={password}
+              onChange={onChange}
+            />
+          </div>
+          <input
+            className="form__submit"
+            type="submit"
+            value={newAccount ? "Create" : "Login"}
+          />
+        </div>
+        <div>{error && <p className="form__error">{error}</p>}</div>
+        <span onClick={toggleAccount}>
+          {newAccount ? (
+            <>
+              <p className="auth__sign">
+                이미 아이디가 있으신가요? <b>Sign In</b>
+              </p>
+            </>
+          ) : (
+            <>
+              <p className="auth__sign">
+                Awitter에 처음이신가요? <b>Create Account</b>
+              </p>
+            </>
+          )}
+        </span>
       </form>
-      <span onClick={toggleAccount}>
-        {newAccount ? "Sign in" : "Create Account"}
-      </span>
     </>
   );
 };

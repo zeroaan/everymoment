@@ -1,0 +1,77 @@
+body {
+  margin: 0;
+}
+
+.auth {
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.auth__logo {
+  width: 70px;
+}
+.auth__form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
+}
+.auth__input {
+  display: flex;
+}
+.form__input {
+  display: flex;
+  flex-direction: column;
+  margin-right: 10px;
+}
+.form__input input {
+  width: 200px;
+  height: 30px;
+  outline: none;
+  border: 1px solid rgb(214, 66, 66);
+  color: rgb(214, 66, 66);
+  border-radius: 5px;
+  margin: 3px 0;
+  padding-left: 8px;
+}
+.form__input input::placeholder {
+  color: rgb(214, 66, 66);
+}
+.form__submit {
+  font-size: 15px;
+  width: 80px;
+  outline: none;
+  border: none;
+  background-color: rgb(214, 66, 66);
+  color: white;
+  border-radius: 10px;
+}
+.form__error {
+  color: rgb(214, 66, 66);
+  margin: 10px 0 0 0;
+  padding: 0;
+}
+.auth__sign {
+  position: relative;
+  top: 60px;
+  cursor: pointer;
+  color: rgb(214, 66, 66);
+}
+
+.auth__social {
+  position: relative;
+  top: -55px;
+}
+.auth__social button {
+  font-size: 14px;
+  margin: 0 8px;
+  height: 40px;
+  outline: none;
+  border: none;
+  background-color: rgb(214, 66, 66);
+  color: white;
+  border-radius: 10px;
+}

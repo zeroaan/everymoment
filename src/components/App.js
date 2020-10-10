@@ -30,7 +30,7 @@ const App = () => {
           userObj={userObj}
         />
       ) : (
-        "Initializing..."
+        "Loading..."
       )}
     </>
   );

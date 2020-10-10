@@ -1,6 +1,7 @@
 import React from "react";
 import { authService, firebaseInstance } from "fbase";
 import AuthForm from "routes/AuthForm";
+import "./Auth.css";
 
 const Auth = () => {
   const onSocialClick = async (e) => {
@@ -16,9 +17,14 @@ const Auth = () => {
   };
 
   return (
-    <>
+    <div className="auth">
+      <img
+        className="auth__logo"
+        src="https://everytime.kr/images/about/logo.png"
+        alt="img"
+      />
       <AuthForm />
-      <div>
+      <div className="auth__social">
         <button onClick={onSocialClick} name="google">
           Continue with Google
         </button>
@@ -26,7 +32,7 @@ const Auth = () => {
           Continue with Github
         </button>
       </div>
-    </>
+    </div>
   );
 };
 export default Auth;
