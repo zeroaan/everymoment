@@ -82,8 +82,9 @@ const Aweet = ({ aweetObj, isOwner, userObj }) => {
             <div className="aweet__box">
               <p>{aweetObj.text}</p>
               <h5>
-                {String(new Date(aweetObj.createdAt)).substring(0, 24)} /{" "}
-                {aweetObj.userName}{" "}
+                {aweetObj.userName}
+                <br />
+                {String(new Date(aweetObj.createdAt)).substring(0, 24)}
               </h5>
             </div>
             {aweetObj.attachmentUrl && (
