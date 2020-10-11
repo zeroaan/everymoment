@@ -1,0 +1,32 @@
+.navi {
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: white;
+  border-bottom: 1px solid rgb(200, 200, 200);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 50px;
+}
+.navi__logo {
+  font-size: 50px;
+  color: rgb(214, 66, 66);
+}
+.navi__link {
+  list-style: none;
+  display: flex;
+}
+.navi__link__list {
+  margin: 0 20px;
+}
+.navi__link__list a {
+  text-decoration: none;
+  color: rgb(75, 75, 75);
+  transition: all 0.3s ease;
+}
+.navi__link__list a:hover {
+  text-decoration: none;
+  color: rgb(214, 66, 66);
+}

@@ -18,7 +18,7 @@ const Auth = () => {
 
   return (
     <div className="auth">
-      <i class="fas fa-envelope-square auth__logo"></i>
+      <i className="fas fa-envelope-square auth__logo"></i>
       <AuthForm />
       <div className="auth__social">
         <button onClick={onSocialClick} name="google">
