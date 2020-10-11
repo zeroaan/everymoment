@@ -18,11 +18,7 @@ const Auth = () => {
 
   return (
     <div className="auth">
-      <img
-        className="auth__logo"
-        src="https://everytime.kr/images/about/logo.png"
-        alt="img"
-      />
+      <i class="fas fa-envelope-square auth__logo"></i>
       <AuthForm />
       <div className="auth__social">
         <button onClick={onSocialClick} name="google">

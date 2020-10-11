@@ -10,7 +10,8 @@ body {
   align-items: center;
 }
 .auth__logo {
-  width: 70px;
+  font-size: 70px;
+  color: rgb(214, 66, 66);
 }
 .auth__form {
   display: flex;
