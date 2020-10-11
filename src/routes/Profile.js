@@ -54,6 +54,7 @@ const Profile = ({ refreshUser, userObj }) => {
           type="text"
           placeholder="Display name"
           value={newDisplayName}
+          maxLength={10}
         />
         <input type="submit" value="Update name" />
       </form>
