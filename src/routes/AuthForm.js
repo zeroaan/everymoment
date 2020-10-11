@@ -71,7 +71,7 @@ const AuthForm = () => {
     <>
       <form className="auth__form" onSubmit={onSubmit}>
         <div className="auth__input">
-          <div className="form__input">
+          <div className="auth__form__input">
             <input
               name="email"
               type="email"
@@ -90,13 +90,13 @@ const AuthForm = () => {
             />
           </div>
           <input
-            className="form__submit"
+            className="auth__form__submit"
             type="submit"
             value={newAccount ? "회원가입" : "로그인"}
           />
         </div>
         <div>
-          {error && <p className="form__error">{errorMessage(error)}</p>}
+          {error && <p className="auth__form__error">{errorMessage(error)}</p>}
         </div>
         <span onClick={toggleAccount}>
           {newAccount ? (

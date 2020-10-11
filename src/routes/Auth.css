@@ -23,12 +23,12 @@ body {
 .auth__input {
   display: flex;
 }
-.form__input {
+.auth__form__input {
   display: flex;
   flex-direction: column;
   margin-right: 10px;
 }
-.form__input input {
+.auth__form__input input {
   width: 200px;
   height: 30px;
   outline: none;
@@ -38,14 +38,14 @@ body {
   margin: 3px 0;
   padding-left: 8px;
 }
-.form__input input:focus {
+.auth__form__input input:focus {
   border: 1px solid rgb(214, 66, 66);
   color: rgb(214, 66, 66);
 }
-.form__input input::placeholder {
+.auth__form__input input::placeholder {
   color: rgb(175, 175, 175);
 }
-.form__submit {
+.auth__form__submit {
   cursor: pointer;
   font-size: 15px;
   position: relative;
@@ -58,7 +58,7 @@ body {
   color: white;
   border-radius: 5px;
 }
-.form__error {
+.auth__form__error {
   color: rgb(214, 66, 66);
   margin: 10px 0 0 0;
   padding: 0;
