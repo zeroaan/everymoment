@@ -3,7 +3,7 @@ body {
 }
 
 .auth {
-  height: 90vh;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -26,10 +26,10 @@ body {
 .auth__form__input {
   display: flex;
   flex-direction: column;
-  margin-right: 10px;
+  margin: 0 10px;
 }
 .auth__form__input input {
-  width: 200px;
+  width: 187px;
   height: 30px;
   outline: none;
   border: 1px solid rgb(175, 175, 175);
@@ -37,6 +37,7 @@ body {
   border-radius: 5px;
   margin: 3px 0;
   padding-left: 8px;
+  font-size: 16px;
 }
 .auth__form__input input:focus {
   border: 1px solid rgb(214, 66, 66);

@@ -70,31 +70,59 @@ const AuthForm = () => {
   return (
     <>
       <form className="auth__form" onSubmit={onSubmit}>
-        <div className="auth__input">
-          <div className="auth__form__input">
+        {newAccount ? (
+          <div className="auth__input">
             <input
-              name="email"
-              type="email"
-              placeholder="Email"
-              required
-              value={email}
-              onChange={onChange}
+              className="auth__form__submit"
+              type="submit"
+              value={newAccount ? "회원가입" : "로그인"}
             />
+            <div className="auth__form__input">
+              <input
+                name="email"
+                type="email"
+                placeholder="Email"
+                required
+                value={email}
+                onChange={onChange}
+              />
+              <input
+                name="password"
+                type="password"
+                placeholder="Password"
+                required
+                value={password}
+                onChange={onChange}
+              />
+            </div>
+          </div>
+        ) : (
+          <div className="auth__input">
+            <div className="auth__form__input">
+              <input
+                name="email"
+                type="email"
+                placeholder="Email"
+                required
+                value={email}
+                onChange={onChange}
+              />
+              <input
+                name="password"
+                type="password"
+                placeholder="Password"
+                required
+                value={password}
+                onChange={onChange}
+              />
+            </div>
             <input
-              name="password"
-              type="password"
-              placeholder="Password"
-              required
-              value={password}
-              onChange={onChange}
+              className="auth__form__submit"
+              type="submit"
+              value={newAccount ? "회원가입" : "로그인"}
             />
           </div>
-          <input
-            className="auth__form__submit"
-            type="submit"
-            value={newAccount ? "회원가입" : "로그인"}
-          />
-        </div>
+        )}
         <div>
           {error && <p className="auth__form__error">{errorMessage(error)}</p>}
         </div>
@@ -108,7 +136,7 @@ const AuthForm = () => {
           ) : (
             <>
               <p className="auth__sign">
-                Awitter에 처음이신가요? &nbsp; <b>Create Account</b>
+                아직 아이디가 없으신가요? &nbsp; <b>Create Account</b>
               </p>
             </>
           )}
