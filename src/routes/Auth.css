@@ -3,7 +3,7 @@ body {
 }
 
 .auth {
-  height: 100vh;
+  height: 90vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -22,11 +22,12 @@ body {
 }
 .auth__input {
   display: flex;
+  justify-content: space-between;
+  width: 295px;
 }
 .auth__form__input {
   display: flex;
   flex-direction: column;
-  margin: 0 10px;
 }
 .auth__form__input input {
   width: 187px;
