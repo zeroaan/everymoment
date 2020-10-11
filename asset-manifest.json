@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/awitter/static/css/main.c5ddb408.chunk.css",
-    "main.js": "/awitter/static/js/main.c258cb75.chunk.js",
-    "main.js.map": "/awitter/static/js/main.c258cb75.chunk.js.map",
+    "main.css": "/awitter/static/css/main.f7f5cfbb.chunk.css",
+    "main.js": "/awitter/static/js/main.590a7108.chunk.js",
+    "main.js.map": "/awitter/static/js/main.590a7108.chunk.js.map",
     "runtime-main.js": "/awitter/static/js/runtime-main.001eb6ae.js",
     "runtime-main.js.map": "/awitter/static/js/runtime-main.001eb6ae.js.map",
-    "static/js/2.ddbb6dfd.chunk.js": "/awitter/static/js/2.ddbb6dfd.chunk.js",
-    "static/js/2.ddbb6dfd.chunk.js.map": "/awitter/static/js/2.ddbb6dfd.chunk.js.map",
+    "static/js/2.5f6cd363.chunk.js": "/awitter/static/js/2.5f6cd363.chunk.js",
+    "static/js/2.5f6cd363.chunk.js.map": "/awitter/static/js/2.5f6cd363.chunk.js.map",
     "index.html": "/awitter/index.html",
-    "precache-manifest.f798782a0600cfe5d29906b4cc5843d7.js": "/awitter/precache-manifest.f798782a0600cfe5d29906b4cc5843d7.js",
+    "precache-manifest.641e3586bf7b4435ee41f59426b209b5.js": "/awitter/precache-manifest.641e3586bf7b4435ee41f59426b209b5.js",
     "service-worker.js": "/awitter/service-worker.js",
-    "static/css/main.c5ddb408.chunk.css.map": "/awitter/static/css/main.c5ddb408.chunk.css.map",
-    "static/js/2.ddbb6dfd.chunk.js.LICENSE.txt": "/awitter/static/js/2.ddbb6dfd.chunk.js.LICENSE.txt"
+    "static/css/main.f7f5cfbb.chunk.css.map": "/awitter/static/css/main.f7f5cfbb.chunk.css.map",
+    "static/js/2.5f6cd363.chunk.js.LICENSE.txt": "/awitter/static/js/2.5f6cd363.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.001eb6ae.js",
-    "static/js/2.ddbb6dfd.chunk.js",
-    "static/css/main.c5ddb408.chunk.css",
-    "static/js/main.c258cb75.chunk.js"
+    "static/js/2.5f6cd363.chunk.js",
+    "static/css/main.f7f5cfbb.chunk.css",
+    "static/js/main.590a7108.chunk.js"
   ]
 }
