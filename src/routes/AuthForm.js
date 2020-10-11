@@ -59,6 +59,10 @@ const AuthForm = () => {
     ) {
       message =
         "로그인 시도가 많이 실패하여 일시적으로 비활성화 되었습니다. 잠시 후에 다시 시도해주세요.";
+    } else if (
+      error === "The email address is already in use by another account."
+    ) {
+      message = "이미 사용중인 이메일 주소입니다.";
     }
     return message || error;
   };
