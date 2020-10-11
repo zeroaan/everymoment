@@ -67,6 +67,7 @@ const Profile = ({ refreshUser, userObj }) => {
           isOwner={aweet.creatorId === userObj.uid}
         />
       ))}
+      <footer className="footer"></footer>
     </>
   );
 };

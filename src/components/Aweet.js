@@ -65,21 +65,24 @@ const Aweet = ({ aweetObj, isOwner, userObj }) => {
       ) : (
         <>
           <div className="aweet">
-            <h4>{aweetObj.userName}</h4>
-            <h4>{aweetObj.text}</h4>
-            <h5>{String(new Date(aweetObj.createdAt)).substring(0, 24)}</h5>
+            <div className="aweet__box">
+              <p>{aweetObj.text}</p>
+              <h5>
+                {String(new Date(aweetObj.createdAt)).substring(0, 24)} /{" "}
+                {aweetObj.userName}{" "}
+              </h5>
+            </div>
             {aweetObj.attachmentUrl && (
               <img
+                className="aweet__img"
                 src={aweetObj.attachmentUrl}
-                width="50px"
-                height="50px"
                 alt="attachment"
               />
             )}
             {isOwner && (
               <div className="aweet__button">
-                <button onClick={onDeleteClick}>Delete Aweet</button>
-                <button onClick={toggleEditing}>Edit Aweet</button>
+                <i class="fas fa-edit" onClick={toggleEditing}></i>
+                <i class="fas fa-trash-alt" onClick={onDeleteClick}></i>
               </div>
             )}
           </div>

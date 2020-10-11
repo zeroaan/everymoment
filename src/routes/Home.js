@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { dbService } from "fbase";
 import Aweet from "components/Aweet";
 import AweetForm from "components/AweetForm";
+import "./Home.css";
 
 const Home = ({ userObj }) => {
   const [aweets, setAweets] = useState([]);
@@ -49,6 +50,7 @@ const Home = ({ userObj }) => {
           />
         ))}
       </div>
+      <footer className="footer"></footer>
     </>
   );
 };

@@ -1,13 +1,41 @@
 .aweet {
-  border: 3px solid black;
-  border-radius: 30px;
-  margin: 10px;
-  padding: 10px;
-  max-width: 300px;
-  text-align: center;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid rgb(235, 235, 235);
+  width: 1000px;
+  height: 150px;
+  margin: auto;
+  margin-bottom: -1px;
+}
+.aweet__box {
+  position: absolute;
+  left: 50px;
+}
+.aweet__box p {
+  font-size: 21px;
+  max-width: 700px;
+  color: rgb(50, 50, 50);
+}
+.aweet__box h5 {
+  font-size: 14px;
+  color: rgb(75, 75, 75);
+}
+.aweet__img {
+  position: absolute;
+  right: 115px;
+  max-width: 100px;
+  max-height: 100px;
 }
 .aweet__button {
-  margin: 20px 0;
-  display: flex;
-  justify-content: space-evenly;
+  position: absolute;
+  top: 20px;
+  right: 15px;
+  font-size: 17px;
+  color: rgb(214, 66, 66);
+}
+.aweet__button i {
+  cursor: pointer;
+  margin: 0 8px;
 }

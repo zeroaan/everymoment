@@ -75,7 +75,7 @@ const AweetFactory = ({ userObj }) => {
             value={aweet}
             onChange={onChange}
             placeholder="새 글을 작성해주세요!"
-            maxLength={120}
+            maxLength={60}
             onKeyPress={onKeyPress}
             autoFocus={true}
           />
