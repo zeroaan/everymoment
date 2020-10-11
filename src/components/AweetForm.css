@@ -1,0 +1,99 @@
+.aweet__form {
+  margin: 50px 0;
+  display: flex;
+  justify-content: center;
+}
+.aweet__form__input {
+  display: flex;
+  flex-direction: column;
+}
+.aweet__form__input__text {
+  width: 500px;
+  height: 40px;
+  outline: none;
+  border: 1px solid rgb(175, 175, 175);
+  border-radius: 5px;
+  padding-left: 7px;
+  margin-bottom: 7px;
+}
+.aweet__form__input__text:focus {
+  border: 1px solid rgb(214, 66, 66);
+}
+.aweet__form__input__submit {
+  font-size: 15px;
+  cursor: pointer;
+  margin-left: 10px;
+  width: 60px;
+  height: 44px;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  background-color: rgb(214, 66, 66);
+  color: white;
+}
+
+/* Input file 형식 변경 */
+.aweet__form__input__file {
+  display: flex;
+}
+.aweet__form__input__file input[type="file"] {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+.aweet__form__input__file label {
+  display: inline-block;
+  font-size: 13px;
+  padding: 8px 12px;
+  margin-right: 20px;
+  color: rgb(150, 150, 150);
+  background-color: white;
+  cursor: pointer;
+  border: 1px solid rgb(235, 235, 235);
+  border-bottom-color: rgb(226, 226, 226);
+  border-radius: 5px;
+  margin-left: 5px;
+  transition: all 0.3s ease;
+}
+.aweet__form__input__file label:hover {
+  background-color: rgb(214, 66, 66);
+  border: 1px solid rgb(214, 66, 66);
+  color: white;
+}
+.aweet__form__input__file .upload__name {
+  display: inline-block;
+  font-size: 13px;
+  padding: 8px 12px;
+  background-color: rgb(245, 245, 245);
+  border: 1px solid rgb(235, 235, 235);
+  border-bottom-color: rgb(226, 226, 226);
+  border-radius: 5px;
+  width: 150px;
+}
+
+.attachment__img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.attachment__img img {
+  margin-left: 15px;
+  max-width: 40px;
+  max-height: 30px;
+}
+.attachment__img button {
+  outline: none;
+  cursor: pointer;
+  margin-left: 15px;
+  padding: 4px 8px;
+  color: rgb(150, 150, 150);
+  background-color: rgb(245, 245, 245);
+  border: 1px solid rgb(235, 235, 235);
+  border-bottom-color: rgb(226, 226, 226);
+  border-radius: 5px;
+}

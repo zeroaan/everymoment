@@ -6,6 +6,7 @@ import "./AweetForm.css";
 const AweetFactory = ({ userObj }) => {
   const [aweet, setAweet] = useState("");
   const [attachment, setAttachment] = useState("");
+  const [attachmentName, setAttachmentName] = useState("파일 선택");
 
   const onSubmit = async (e) => {
     e.preventDefault();
@@ -52,6 +53,7 @@ const AweetFactory = ({ userObj }) => {
   const onFileChange = (e) => {
     const { files } = e.target;
     const theFile = files[0];
+    setAttachmentName(theFile.name);
     const reader = new FileReader();
     reader.onloadend = (finishedEvent) => {
       const { result } = finishedEvent.currentTarget;
@@ -65,25 +67,46 @@ const AweetFactory = ({ userObj }) => {
 
   return (
     <>
-      <form onSubmit={onSubmit}>
-        <input
-          type="text"
-          value={aweet}
-          onChange={onChange}
-          placeholder="What's on your mind?"
-          maxLength={120}
-          onKeyPress={onKeyPress}
-          autoFocus={true}
-        />
-        <input type="file" accept="image/*" onChange={onFileChange} />
-
-        <input type="submit" value="Aweet" />
-        {attachment && (
-          <div>
-            <img src={attachment} alt="img" width="50px" height="50px" />
-            <button onClick={onClearAttachment}>Clear</button>
+      <form className="aweet__form" onSubmit={onSubmit}>
+        <div className="aweet__form__input">
+          <input
+            className="aweet__form__input__text"
+            type="text"
+            value={aweet}
+            onChange={onChange}
+            placeholder="새 글을 작성해주세요!"
+            maxLength={120}
+            onKeyPress={onKeyPress}
+            autoFocus={true}
+          />
+          <div className="aweet__form__input__file">
+            <div>
+              <input
+                className="upload__name"
+                value={attachmentName}
+                disabled="disabled"
+              />
+              <label htmlFor="file__name">업로드</label>
+              <input
+                id="file__name"
+                type="file"
+                accept="image/*"
+                onChange={onFileChange}
+              />
+            </div>
+            {attachment && (
+              <div className="attachment__img">
+                <img src={attachment} alt="img" />
+                <button onClick={onClearAttachment}>Clear</button>
+              </div>
+            )}
           </div>
-        )}
+        </div>
+        <input
+          className="aweet__form__input__submit"
+          type="submit"
+          value="글쓰기"
+        />
       </form>
     </>
   );
