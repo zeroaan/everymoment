@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "324d397fe0e7d0c4ac1b6c1a9cdd77a0",
+    "revision": "8e4cd1089de4a33ae035667228d249eb",
     "url": "/awitter/index.html"
   },
   {
-    "revision": "a730c789df92f7901e6d",
+    "revision": "b5d497c8af1dadd214be",
     "url": "/awitter/static/css/main.f7f5cfbb.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/awitter/static/js/2.5f6cd363.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "a730c789df92f7901e6d",
-    "url": "/awitter/static/js/main.646c1537.chunk.js"
+    "revision": "b5d497c8af1dadd214be",
+    "url": "/awitter/static/js/main.7f8d94ac.chunk.js"
   },
   {
     "revision": "285150e5afc7ff9b35e6",
