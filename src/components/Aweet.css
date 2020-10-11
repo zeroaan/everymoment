@@ -9,6 +9,54 @@
   margin: auto;
   margin-bottom: -1px;
 }
+
+/* Editing이 true 일 때 */
+.aweet__editing__text {
+  font-size: 18px;
+  width: 500px;
+  height: 40px;
+  outline: none;
+  border: 1px solid rgb(215, 215, 215);
+  border-radius: 5px;
+  padding-left: 7px;
+  margin-bottom: 7px;
+}
+.aweet__editing__text:focus {
+  border: 1px solid rgb(212, 143, 143);
+}
+.aweet__editing__button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 15px;
+}
+.aweet__editing__button__edit {
+  font-size: 15px;
+  cursor: pointer;
+  margin-left: 10px;
+  width: 60px;
+  height: 30px;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  background-color: rgb(214, 66, 66);
+  color: white;
+}
+.aweet__editing__button__cancel {
+  font-size: 15px;
+  cursor: pointer;
+  margin-left: 10px;
+  width: 60px;
+  height: 31px;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  border: 2px solid rgb(214, 66, 66);
+  background-color: white;
+  color: rgb(214, 66, 66);
+}
+
+/* Editing이 false 일 때 */
 .aweet__box {
   position: absolute;
   left: 50px;

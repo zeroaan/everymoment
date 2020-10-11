@@ -6,7 +6,9 @@ const Aweet = ({ aweetObj, isOwner, userObj }) => {
   const [editing, setEditing] = useState(false);
   const [newAweet, setNewAweet] = useState(aweetObj.text);
   const onDeleteClick = async () => {
-    const ok = window.confirm("Are you sure you want to delete this aweet?");
+    const ok = window.confirm(
+      "삭제 후에 되돌릴 수 없습니다. 삭제하시겠습니까?"
+    );
     if (ok) {
       await dbService.doc(`aweets/${aweetObj.id}`).delete();
       if (aweetObj.attachmentUrl) {
@@ -49,17 +51,29 @@ const Aweet = ({ aweetObj, isOwner, userObj }) => {
       {editing ? (
         <>
           <div className="aweet">
-            <form onSubmit={onSubmit}>
+            <form className="aweet__editing" onSubmit={onSubmit}>
               <input
+                className="aweet__editing__text"
                 type="text"
-                placeholder="Edit your aweet"
+                placeholder="내용을 입력하세요."
                 value={newAweet}
                 onChange={onChange}
                 required
               />
-              <input type="submit" value="Update Aweet" />
+              <div className="aweet__editing__button">
+                <input
+                  className="aweet__editing__button__edit"
+                  type="submit"
+                  value="수정"
+                />
+                <button
+                  className="aweet__editing__button__cancel"
+                  onClick={toggleEditing}
+                >
+                  취소
+                </button>
+              </div>
             </form>
-            <button onClick={toggleEditing}>cancel</button>
           </div>
         </>
       ) : (
