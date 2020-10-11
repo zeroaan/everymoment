@@ -1,5 +1,5 @@
 .aweet__form {
-  margin: 50px 0;
+  margin: 75px 0;
   display: flex;
   justify-content: center;
 }
@@ -8,6 +8,7 @@
   flex-direction: column;
 }
 .aweet__form__input__text {
+  font-size: 18px;
   width: 500px;
   height: 40px;
   outline: none;
