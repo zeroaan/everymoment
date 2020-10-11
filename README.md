@@ -295,3 +295,5 @@ const refreshUser = () => {
   setUserObj(Object.assign({}, user));
 };
 ```
+
+#### css 1차 완료
