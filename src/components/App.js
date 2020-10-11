@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import AppRouter from "components/Router";
 import { authService } from "fbase";
+import "./App.css";
 
 const App = () => {
   const [init, setInit] = useState(false);
@@ -30,7 +31,9 @@ const App = () => {
           userObj={userObj}
         />
       ) : (
-        "Loading..."
+        <div className="loading">
+          <p>Loading...</p>
+        </div>
       )}
     </>
   );
