@@ -1,5 +1,5 @@
 {
-  "name": "awitter",
+  "name": "everymoment",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -35,5 +35,5 @@
       "last 1 safari version"
     ]
   },
-  "homepage": "https://zeroaan.github.io/awitter"
+  "homepage": "https://zeroaan.github.io/everymoment"
 }
