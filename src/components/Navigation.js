@@ -10,7 +10,7 @@ const Navigation = ({ userObj }) => {
           <i className="fas fa-envelope-square navi__logo"></i>
         </Link>
         <ul className="navi__link">
-          <li className="navi__link__list">
+          <li className="navi__link__list home">
             <Link to="/" replace>
               Home
             </Link>

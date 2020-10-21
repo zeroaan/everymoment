@@ -32,3 +32,16 @@
   text-decoration: none;
   color: rgb(214, 66, 66);
 }
+
+@media screen and (max-width: 768px) {
+  .navi {
+    padding: 15px 30px;
+  }
+  .navi__link__list {
+    margin: 0 5px;
+    font-size: 14px;
+  }
+  .navi__link__list.home {
+    display: none;
+  }
+}

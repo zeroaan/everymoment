@@ -98,3 +98,39 @@
   border-bottom-color: rgb(226, 226, 226);
   border-radius: 5px;
 }
+
+@media screen and (max-width: 768px) {
+  .aweet__form__input__text {
+    font-size: 12px;
+    width: 200px;
+    height: 30px;
+  }
+  .aweet__form__input__submit {
+    font-size: 12px;
+    margin-left: 5px;
+    width: 45px;
+    height: 34px;
+  }
+
+  .aweet__form__input__file label {
+    font-size: 10px;
+  }
+  .aweet__form__input__file .upload__name {
+    font-size: 10px;
+    width: 90px;
+  }
+
+  .attachment__img {
+    position: absolute;
+    left: 225px;
+    margin-top: 3px;
+  }
+  .attachment__img img {
+    max-width: 35px;
+    max-height: 30px;
+  }
+  .attachment__img button {
+    margin-left: 8px;
+    font-size: 10px;
+  }
+}

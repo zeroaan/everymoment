@@ -1,4 +1,20 @@
-# Cloning Twitter with React and Firebase
+# React & Firebase (Every Moment)
+
+- https://zeroaan.github.io/everymoment/
+- 기간 : 20년 10월 05일 ~ 10월 11일
+- 소개 : React와 Firebase를 이용하여 실시간 커뮤니티를 만들어 보았다.
+
+<br>
+
+![screen](./img/screen.gif)
+
+<br>
+
+#### 반응형으로 만들어주어 모바일에서도 이용할 수 있도록 하였다.
+
+![responsive](./img/responsive.png)
+
+<br>
 
 ### firebase 기능, 메서드 정리
 
@@ -86,7 +102,7 @@ const onLogOutClick = () => {
   authService.signOut();
   history.push("/");
   // 위 속성은 단순히 로그아웃만 시키기 때문에 useHistory를 이용하여
-  // /로 push 해주어야 한다.
+  // '/'로 push 해주어야 한다.
 };
 ```
 
@@ -295,5 +311,3 @@ const refreshUser = () => {
   setUserObj(Object.assign({}, user));
 };
 ```
-
-#### css 1차 완료
