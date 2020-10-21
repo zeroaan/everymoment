@@ -55,3 +55,29 @@
 .footer {
   margin-top: 100px;
 }
+
+@media screen and (max-width: 768px) {
+  .profile__form__logout {
+    left: 111px;
+    width: 50px;
+    height: 25px;
+    font-size: 10px;
+  }
+  .profile__form label {
+    font-size: 12px;
+  }
+  .profile__form__text {
+    font-size: 13px;
+    width: 130px;
+    height: 28px;
+    outline: none;
+  }
+  .profile__form__submit {
+    font-size: 10px;
+    width: 50px;
+    height: 32px;
+  }
+  .profile__myWrite {
+    font-size: 13px;
+  }
+}
