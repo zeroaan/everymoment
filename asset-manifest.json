@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/everymoment/static/css/main.5c157ee0.chunk.css",
-    "main.js": "/everymoment/static/js/main.63888f34.chunk.js",
-    "main.js.map": "/everymoment/static/js/main.63888f34.chunk.js.map",
+    "main.css": "/everymoment/static/css/main.9b43d38d.chunk.css",
+    "main.js": "/everymoment/static/js/main.5459b0d2.chunk.js",
+    "main.js.map": "/everymoment/static/js/main.5459b0d2.chunk.js.map",
     "runtime-main.js": "/everymoment/static/js/runtime-main.786118d9.js",
     "runtime-main.js.map": "/everymoment/static/js/runtime-main.786118d9.js.map",
     "static/js/2.ecf729f0.chunk.js": "/everymoment/static/js/2.ecf729f0.chunk.js",
     "static/js/2.ecf729f0.chunk.js.map": "/everymoment/static/js/2.ecf729f0.chunk.js.map",
     "index.html": "/everymoment/index.html",
-    "precache-manifest.42d77ebded7f9d976619f4c5e14e5973.js": "/everymoment/precache-manifest.42d77ebded7f9d976619f4c5e14e5973.js",
+    "precache-manifest.25eb79603661175b0aa1ae71897f8f20.js": "/everymoment/precache-manifest.25eb79603661175b0aa1ae71897f8f20.js",
     "service-worker.js": "/everymoment/service-worker.js",
-    "static/css/main.5c157ee0.chunk.css.map": "/everymoment/static/css/main.5c157ee0.chunk.css.map",
+    "static/css/main.9b43d38d.chunk.css.map": "/everymoment/static/css/main.9b43d38d.chunk.css.map",
     "static/js/2.ecf729f0.chunk.js.LICENSE.txt": "/everymoment/static/js/2.ecf729f0.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.786118d9.js",
     "static/js/2.ecf729f0.chunk.js",
-    "static/css/main.5c157ee0.chunk.css",
-    "static/js/main.63888f34.chunk.js"
+    "static/css/main.9b43d38d.chunk.css",
+    "static/js/main.5459b0d2.chunk.js"
   ]
 }
